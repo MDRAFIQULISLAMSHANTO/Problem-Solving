@@ -1,25 +1,20 @@
-class Solution {   /Binary Search
+class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int st = 0;
-        int end = nums.size() - 1;
-        while(st <= end){
-            int mid = st + (end -st)/2; //optimize way to find middle
-            mid = mi
-            if(nums[st] <= nums[mid] ){ //left side sorted
-                if(nums[st] <= target && target <= nums[mid]){
-                    end = mid -1;
-                }else
-                {st = mid + 1;}
-            } else{     //right side sorted
-            if(nums[mid] <= target && target <= nums[end]){
-                st = mid + 1;
-        }else {
-            end = mid  - 1;
-        }
+            int start = 0;
+            int end = nums.size() -1;
+            int minv = INT_MAX;
+            while(start <= end){
+                int mid = start + (end - start)/2;
+                minv = min(minv,nums[mid]);
+                if(nums[end] >= nums[mid]){
+                    end = mid - 1;
+                }else{
+                    start = mid +1 ;
+                }
+
             }
-        }
-        return -1;
+            return minv;
     }
 };
 /* 153. Find Minimum in Rotated Sorted Array
